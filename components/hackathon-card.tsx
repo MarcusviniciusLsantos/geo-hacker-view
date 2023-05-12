@@ -38,7 +38,7 @@ export default function HackathonCard({
       <div className={styles.cardText}>
         <div className={styles.cardAvatar}>
           <div className={styles.imgAvatar}>
-            <img src={logoImageFile?.url} alt={name} />
+            <img src={logoImageFile?.url} alt={name} width={70} height={70}/>
           </div>
         </div>
         <div className={styles.realText}>
