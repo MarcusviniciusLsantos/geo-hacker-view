@@ -27,11 +27,16 @@ export default function City() {
   }, [router?.query?.city]);
 
   function getAllHackathons() {
-    api
-      .get("/hackathons")
-      .then((res) => setChallenges(res?.data?.data?.challenges))
-      .catch((err) => console.log("err", err));
-    console.log("challenges", challenges);
+    fetch('api/hackathons', {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    }).then(async (res) => {
+    const data = await res.json();
+    setChallenges(data?.data?.challenges)
+  })
+    .catch((err) => console.log("err", err));
   }
 
   useEffect(getAllHackathons, []);
