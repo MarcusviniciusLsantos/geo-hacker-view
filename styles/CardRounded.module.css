@@ -1,0 +1,9 @@
+.card {
+    cursor: pointer;
+}
+
+.card :hover {
+    background: -webkit-linear-gradient(rgb(136, 108, 241) 55.41%, rgb(67, 41, 166) 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
