@@ -1,7 +1,7 @@
 import HackathonCard from "@/components/hackathon-card";
-import { api } from "@/services/api";
 import { CountryData } from "@/utils/handleCountryData";
 import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { Key, useEffect, useState } from "react";
 import { Col, Row } from "reactstrap";
@@ -27,16 +27,17 @@ export default function City() {
   }, [router?.query?.city]);
 
   function getAllHackathons() {
-    fetch('api/hackathons', {
+    fetch("api/hackathons", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-      }
-    }).then(async (res) => {
-    const data = await res.json();
-    setChallenges(data?.data?.challenges)
-  })
-    .catch((err) => console.log("err", err));
+      },
+    })
+      .then(async (res) => {
+        const data = await res.json();
+        setChallenges(data?.data?.challenges);
+      })
+      .catch((err) => console.log("err", err));
   }
 
   useEffect(getAllHackathons, []);
@@ -74,7 +75,12 @@ export default function City() {
       </div>
       <Row className="d-flex justify-content-center mt-4">
         <Col md="10">
-          <div className="d-flex justify-content-start mb-4" style={{ borderBottom: '1px solid rgb(217, 212, 237)'}}>Hackathons</div>
+          <div
+            className="d-flex justify-content-start mb-4"
+            style={{ borderBottom: "1px solid rgb(217, 212, 237)" }}
+          >
+           <Link href="/" className="me-1">Cities</Link>{`>`} Hackathons
+          </div>
           <Row className="d-flex justify-content-center">
             {challenges?.map((challenge: any, key: Key | null | undefined) => (
               <Col md="3" key={key}>
