@@ -141,3 +141,14 @@
     margin-left: 0.5rem;
     color: rgb(105, 84, 184);
 }
+
+.cardTextSec {
+    flex: 1 1 0%;
+    position: relative;
+    margin-top: calc(-0.75rem);
+    border-radius: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    padding: calc(3.75rem) 0.75rem 0.75rem;
+    transition-duration: 0.3s;
+}
